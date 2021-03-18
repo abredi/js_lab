@@ -29,4 +29,51 @@ function isPrime(num) {
     return true;
 }
 
-module.exports = {isPrime, findEven, findLargestEven};
+function findLargestPrimeFactor(num) {
+    let largest = 0;
+    if (num < 2) {
+        return largest
+    }
+    for (let i = 2; i <= num / 2; i++) {
+        if (num % i != 0) {
+            if (i > largest) {
+                largest = i;
+            }
+        }
+    }
+    return largest;
+}
+
+function findMaxAvg(customer) {
+    let max = customer[0];
+    let sum = customer[0];
+    
+    for (let i = 0; i < customer.length; i++) {
+        sum+=customer[i];
+        if (customer[i] > max) {
+            max = customer[i];
+        }
+    }
+    return [sum/customer.length, max];
+}
+
+function findMaxAndAverage(customers) {
+    let maxNAvg = [];
+    for (const customer of customers) {
+        /*
+        let max = customer[0];
+        let sum = customer[0];
+        for (let i = 0; i < customer.length; i++) {
+            sum+=customer[i];
+            if (customer[i] > max) {
+                max = customer[i];
+            }
+        }
+        maxNAvg.push([sum/customer.length, max]);
+        */
+       maxNAvg.push(findMaxAvg(customer));
+    }
+    return maxNAvg;
+}
+
+module.exports = {findMaxAndAverage, findLargestPrimeFactor, isPrime, findEven, findLargestEven};

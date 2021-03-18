@@ -1,4 +1,4 @@
-const {isPrime, findEven, findLargestEven} = require('./index');
+const {findMaxAndAverage,findLargestPrimeFactor, isPrime, findEven, findLargestEven} = require('./index');
 test('findEven should  return evens up to 8', async () => {
     expect(findEven(8)).toEqual([2,4,6,8]);
 });
@@ -14,4 +14,18 @@ test('isPrime should return false', async () => {
 
 test('isPrime should return true', async () => {
     expect(isPrime(11)).toBe(true);
+});
+
+test('findLargestPrimeFactor should return 10', async () => {
+    expect(findLargestPrimeFactor(10)).toBe(5);
+});
+test('findLargestPrimeFactor should return 17', async () => {
+    expect(findLargestPrimeFactor(6936)).toBe(17);
+});
+test('findLargestPrimeFactor should return 0', async () => {
+    expect(findLargestPrimeFactor(1)).toBe(0);
+});
+
+test('findMaxAndAverage should return 0', async () => {
+    expect(findLargestPrimeFactor(1)).toBe(0);
 });
